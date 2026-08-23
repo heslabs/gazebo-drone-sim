@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="obstacle_course">
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <physics name="default_physics" default="0" type="ode">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+    </physics>
+
+    <!-- Three simple box "pylons" the drone can practice flying around -->
+    <model name="pylon_1">
+      <static>true</static>
+      <pose>5 0 1 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.3 0.3 2</size></box></geometry>
+          <material><ambient>0.8 0.2 0.2 1</ambient></material>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>0.3 0.3 2</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="pylon_2">
+      <static>true</static>
+      <pose>5 4 1 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.3 0.3 2</size></box></geometry>
+          <material><ambient>0.2 0.6 0.8 1</ambient></material>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>0.3 0.3 2</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="pylon_3">
+      <static>true</static>
+      <pose>5 -4 1 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>0.3 0.3 2</size></box></geometry>
+          <material><ambient>0.2 0.8 0.3 1</ambient></material>
+        </visual>
+        <collision name="collision">
+          <geometry><box><size>0.3 0.3 2</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- A raised landing platform to practice precision landings -->
+    <model name="landing_pad">
+      <static>true</static>
+      <pose>10 0 0.15 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><cylinder><radius>1.0</radius><length>0.3</length></cylinder></geometry>
+          <material><ambient>0.9 0.9 0.1 1</ambient></material>
+        </visual>
+        <collision name="collision">
+          <geometry><cylinder><radius>1.0</radius><length>0.3</length></cylinder></geometry>
+        </collision>
+      </link>
+    </model>
+
+  </world>
+</sdf>
