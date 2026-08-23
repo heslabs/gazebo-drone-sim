@@ -212,18 +212,10 @@ Gazebo Classic 11 and Gazebo Harmonic so either path works.
 
 ## Troubleshooting
 
-- This also fixes a subtler variant of the same bug:
-  `install_deps.sh` only rewrites the *default* value in
-  `config/env.sh` (`${PX4_SIM_TARGET:-gz_x500}`), so a `PX4_SIM_TARGET`
-  already exported in your shell (e.g. from manually testing a value
-  in an earlier session) would silently override that default with no
-  warning — `resolve_sim_target` catches this too, since it runs at
-  the point of use rather than relying solely on the one-time sed
-  patch. Note: `run_custom_world.sh` (the `obstacle_course.world` /
+- Note: `run_custom_world.sh` (the `obstacle_course.world` /
   QGC demo) deliberately still *requires* a real Classic target and
   will refuse to run without one — that demo genuinely needs a Classic
   world file, so on Ubuntu 24.04+ it isn't available; run it on 20.04
   or 22.04 instead.
-  resume.
 - **Port already in use**: an old SITL/Gazebo instance is still
   running — `pkill -f px4` and `pkill -f gzserver` then retry.
